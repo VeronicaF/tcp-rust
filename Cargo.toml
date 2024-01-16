@@ -1,8 +1,13 @@
 [package]
-name = "rust-tcp"
+name = "rust_tcp"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = { version = "1.0.79", registry = "rsproxy" }
+etherparse = { version = "0.13.0", registry = "rsproxy" }
+tracing = { version = "0.1.40", registry = "rsproxy" }
+tracing-subscriber = { version = "0.3.18", registry = "rsproxy" }
+tun = { version = "0.6.1", registry = "rsproxy" }

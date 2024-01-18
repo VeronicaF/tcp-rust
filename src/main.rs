@@ -51,7 +51,7 @@ fn main() -> anyhow::Result<()> {
     let mut buf = [0; 4096];
 
     while let Ok(amount) = device.read(&mut buf) {
-        tracing::trace!("Read {} bytes", amount);
+        tracing::trace!("New packet coming, read {} bytes", amount);
         let raw_ether = &buf[..amount];
 
         tracing::trace!("raw_ether: {:02x?}", raw_ether);
@@ -65,7 +65,7 @@ fn main() -> anyhow::Result<()> {
             ether_header[2],
             ether_header[3],
         ]);
-        tracing::trace!("ether_header: {:?}", ether_header);
+        // tracing::trace!("ether_header: {:?}", ether_header);
         // ignore non-ipv4 packets`
         if proto_family != 2 {
             tracing::trace!("Not an ipv4 packet but {}", proto_family);
